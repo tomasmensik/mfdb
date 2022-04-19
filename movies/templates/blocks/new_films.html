@@ -3,7 +3,9 @@
     {% for film in films %}
         <div class="row mb-4 border-bottom">
             <div class="col-md-2">
-                <img src="{{ film.poster.url }}" alt="{{ film.title }}" class="img-fluid">
+                {% if film.poster %}
+                    <img src="{{ film.poster.url }}" alt="{{ film.title }}" class="img-fluid">
+                {% endif %}
             </div>
             <div class="col-md-8">
                 <h4>{{ film.title|upper }}</h4>
