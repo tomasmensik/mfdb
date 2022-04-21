@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import FilmModelForm
 from movies.models import Film, Genre, Attachment
 
@@ -86,5 +87,10 @@ class FilmUpdate(UpdateView):
     template_name = 'movies/film_bootstrap_form.html'
     form_class = FilmModelForm
     #fields = '__all__'
+
+class FilmDelete(DeleteView):
+    model = Film
+    success_url = reverse_lazy('films')
+
 
 

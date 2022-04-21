@@ -28,7 +28,13 @@
 
                 </div>
             </li>
-
+        </ul>
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Odhlásit</a></li>
+            {% else %}
+                <li class="nav-item"><a href="{% url 'login' %}?next={{ request.path }}" class="nav-link">Přihlásit</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>
